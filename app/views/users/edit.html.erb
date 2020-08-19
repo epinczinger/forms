@@ -1,5 +1,5 @@
 <!--
-<form accept-charset="UTF-8" action="/users" method="post">
+<form_tag accept-charset="UTF-8" action="/users_path" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
     <label for="username">Username:</label>
     <input type="text" id="username" name="user[username]" /><br />
@@ -11,9 +11,10 @@
     <input type="password" id="password" name="user[password]" /><br />
     <br />
     <input type="submit" value="Submit" />
-</form>
+</form_tag>
 -->
 <%= form_for @user do|f|%>
+    <input type="hidden" name="form_authenticity_token" value="<%= form_authenticity_token %>" />
     <% if @user.errors.any? %>
         <div id="error_explanation">
             <h2><%= pluralize(@user.errors.count, "error") %> 
